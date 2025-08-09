@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Prescriptions Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+    <!-- Custom CSS -->
+    <link href="../../assets/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-soft">
+    <input type="checkbox" id="checkbox" hidden>
+    <label for="checkbox" class="toggle-btn" id="toggleBtn">
+        <div class="bars" id="bar1"></div>
+        <div class="bars" id="bar2"></div>
+        <div class="bars" id="bar3"></div>
+    </label>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <!-- <img src="" alt="" /> -->
+        </div>
+        <ul>
+            <li>
+                <a href="../../index.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+            </li>
+            <li>
+                <a href="./customer-list.html"><i class="fas fa-users"></i><span>Customer</span></a>
+            </li>
+            <li>
+                <a href="../prescription-list.html"><i class="fas fa-align-left"></i><span>Prescription</span></a>
+            </li>
+            <li>
+                <a href="./delivery/delivery-list.html"><i class="fas fa-file-alt"></i><span>Reports</span></a>
+            </li>
+            <!-- Settings Submenu -->
+            <li class="has-submenu">
+                <a href="#" class="submenu-toggle">
+                    <i class="fas fa-cogs"></i>
+                    <span>Settings</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="#"><i class="fas fa-user-cog"></i><span> Settings 1</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-database"></i><span> Settings 2</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-shield-alt"></i><span> Settings 3</span></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="main-content" id="mainContent">
+        <div id="mainHeader"
+            class="d-flex justify-content-between align-items-center px-4 py-2 bg-white text-dark shadow-sm w-100">
+            <h4 class="fw-bold mb-0">Customers</h4>
+            <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-bell-fill fs-4" role="button" title="Notifications"></i>
+                <i class="bi bi-person-circle fs-4" role="button" title="Profile"></i>
+            </div>
+        </div>
+
+        <div class="container-fluid my-5">
+            <div class="card form-card shadow-lg border-0">
+                <div class="card-body">
+                    <!-- Uiverse.io Button Link Replacement -->
+                    <div class="d-flex justify-content-end mb-0">
+                        <a href="./add-customers.html" class="btn add-btn mb-3">+ Add</a>
+                    </div>
+                    <div class="table-responsive mt-3">
+                        <table id="DataTable" class="table table-bordered table-hover table-striped custom-table mb-0 ">
+                            <thead>
+                                <tr>
+                                    <th>S.NO.</th>
+                                    <th>CUSTOMER NAME</th>
+                                    <th>MOBILE #</th>
+                                    <th>LOCATION</th>
+                                    <th>CITY</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Saravana Textiles</td>
+                                    <td>9876543210</td>
+                                    <td>Gandhipuram</td>
+                                    <td>Coimbatore</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" title="edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Arun Industries</td>
+                                    <td>9845012345</td>
+                                    <td>Peelamedu</td>
+                                    <td>Coimbatore</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" title="edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>Vetri Agencies</td>
+                                    <td>9976234158</td>
+                                    <td>Singanallur</td>
+                                    <td>Coimbatore</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" title="edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/script.js"></script>
+    <!-- jQuery (Required for DataTables) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#DataTable').DataTable({
+                paging: true, // Enable pagination
+                searching: true, // Enable search
+                ordering: true, // Enable sorting
+                pageLength: 5, // Show 5 rows per page
+                lengthMenu: [5, 10, 25, 50], // Dropdown for rows per page
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search customers..."
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

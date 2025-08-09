@@ -1,0 +1,422 @@
+.sidebar {
+  width: 250px;
+  background: #ffffff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.sidebar-logo {
+  background-image: url(./assets/images/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 50%;     /* Set desired width */
+  height: 100px;    /* Set desired height */
+  display: block;
+  margin-left: 5rem;
+  margin-top: -2rem;
+
+   /* Center it if needed */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.collapsed ul li a span {
+  display: none;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  color: #333;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.sidebar ul li a i {
+  margin-right: 15px;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+  color: black; /* keep your icon blue */
+}
+
+/* Hover Effects */
+.sidebar ul li a:hover {
+background-color: #f6f9ff;
+  color: #003287;
+  border-left: 4px solid #003287;
+  margin-left: 25px;
+}
+
+.sidebar ul li a {
+  transition: all 0.5s ease; /* Adjust duration as needed */
+}
+
+
+/* Submenu */
+.submenu {
+  display: none;
+background-color: #f6f9ff;
+padding-left: 15px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+
+transition: all 0.5s ease;
+}
+
+.submenu.open {
+  display: block;
+}
+
+/* Arrow for submenu toggle */
+.has-submenu .arrow {
+  margin-left: auto;
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+/* Sidebar Toggle Button */
+/* Toggle Button Bars */
+.toggle-btn {
+  width: 35px;
+  height: 30px;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.bars {
+  height: 4px;
+  background-color: #003287;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* Bar animations */
+#checkbox:checked + .toggle-btn #bar1 {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+#checkbox:checked + .toggle-btn #bar2 {
+  opacity: 0;
+}
+
+#checkbox:checked + .toggle-btn #bar3 {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Sidebar toggle using JS class, you still use .collapsed or .active in JS */
+.sidebar {
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    left: -250px;
+  }
+  .sidebar.active {
+    left: 0;
+  }
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .fw-bold {
+    margin-left: 2rem;
+  }
+}
+
+
+
+
+/* Main Content */
+.main-content {
+  margin-left: 250px;
+  padding: 10px;
+  transition: margin-left 0.3s ease;
+}
+.main-content.expanded {
+  margin-left: 60px;
+}
+
+
+
+.add-btn{
+  /* From Uiverse.io by adamgiebl */ 
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.7em 2em;
+  border: 3px solid #003287;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: #003287;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.add-btn:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #003287;
+  z-index: -1;
+}
+
+.add-btn:hover, .add-btn:focus {
+  color: white;
+}
+
+.add-btn:hover:before, .add-btn:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.add-btn:active {
+  transform: scale(0.9);
+}
+
+
+
+.custom-box {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+#DataTable thead th {
+    background-color: #003366; /* Dark blue */
+    color: white;              /* White text for contrast */
+    text-align: center;        /* Center align text */
+    vertical-align: middle;    /* Vertically center text */
+}
+#DataTable tbody td {
+    text-align: center;
+    vertical-align: middle;
+}
+.table thead th {
+    background-color: #003366; /* Dark Blue */
+    color: white; /* White text */
+    text-align: center; /* Center align text */
+    vertical-align: middle; /* Align text vertically */
+}
+
+  .form-card {
+        border-radius: 15px;
+        background: #ffffff;
+        border: none;
+    }
+    .form-label {
+        font-weight: 600;
+        color: #34495e;
+    }
+
+    .form-select{
+      font-weight: 600;
+        color: #34495e;
+    }
+    .form-control, textarea, input[type="number"], input[type="text"], .form-select{
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        padding: 10px 14px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        background: #fdfdfd;
+    }
+    .form-control:focus {
+        border-color: #4e73df;
+        box-shadow: 0 0 8px rgba(78, 115, 223, 0.3);
+        background: #fff;
+    }
+    textarea {
+        resize: none;
+    }
+  
+
+.file-upload {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    text-align: center;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.file-upload:hover {
+    border-color: #0d6efd;
+    background-color: #f8f9fa;
+}
+.file-upload i {
+    font-size: 2rem;
+    color: #0d6efd;
+}
+.file-upload input {
+    display: none;
+}
+
+
+/* General body background */
+body {
+    background-color: #f8f9fc;
+}
+
+/* Card styles */
+.form-card {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.summary-card {
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.summary-card {
+    color: white; /* Make text white for better contrast */
+    border: none;
+}
+
+.summary-card.total {
+    background: linear-gradient(135deg, #d4fc79, #96e6a1); /* Light green → mint */
+}
+
+.summary-card.contacted {
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Light yellow → peach */
+}
+
+.summary-card.converted {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb); /* Light blue shades */
+}
+
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Table styles */
+.table {
+    overflow: hidden;
+}
+
+.table th, 
+.table td {
+    vertical-align: middle;
+    font-size: large;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f5ff;
+}
+
+
+
+.badge {
+    font-size: 0.85rem;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+
+
+/* Filters section */
+label.form-label {
+    font-weight: 600;
+}
+
+/* Search input */
+#tableSearch {
+    border-radius: 8px 0 0 8px;
+}
+
+/* PDF/Print buttons spacing */
+#btnPdf, #btnPrint {
+    min-width: 90px;
+}
+
+ .detail-content {
+                overflow: hidden;
+                height: 0;
+                transition: height 0.4s ease;
+            }
+
+            .table .main-row>td {
+                vertical-align: middle;
+            }
+
+            .btn-toggle {
+                font-size: 0.85rem;
+            }
+
+
+            .detail-content {
+    padding: 0; /* Remove extra padding */
+}
+
+.detail-content table {
+    margin-bottom: 0; /* Remove bottom margin */
+}

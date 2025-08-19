@@ -75,57 +75,66 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">Customer / Company Name</label>
-                            <input type="text" class="form-control custom-input" placeholder="Enter name" />
+                            <label class="form-label">Customer / Company Name <span style="color:red">*</span></label>
+                            <input type="text" id="customerName" class="form-control custom-input"
+                                placeholder="Enter name" required />
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Contact Person</label>
-                            <input type="text" class="form-control custom-input" placeholder="Contact person" />
+                            <input type="text" id="contactPerson" class="form-control custom-input"
+                                placeholder="Contact person" />
+
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">GST Number</label>
-                            <input type="text" class="form-control custom-input" placeholder="GST #" />
+                            <input type="text" id="gstNumber" class="form-control custom-input" placeholder="GST #" />
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">Mobile Number</label>
-                            <input type="text" class="form-control custom-input" placeholder="Mobile #" />
+                            <label class="form-label">Mobile Number <span style="color:red">*</span></label>
+                            <input type="text" id="mobileNumber" class="form-control custom-input"
+                                placeholder="Mobile #" required />
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Alternate Number</label>
-                            <input type="text" class="form-control custom-input" placeholder="Alternate #" />
+
+                            <input type="text" id="alternateNumber" class="form-control custom-input"
+                                placeholder="Alternate #" />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control custom-input" placeholder="Location" />
+                            <label class="form-label">Location <span style="color:red">*</span></label>
+                            <input type="text" id="location" class="form-control custom-input" placeholder="Location"
+                                required />
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Address Line 1</label>
-                            <input type="text" class="form-control custom-input" placeholder="Address 1" />
+                            <input type="text" id="address1" class="form-control custom-input"
+                                placeholder="Address 1" />
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Address Line 2</label>
-                            <input type="text" class="form-control custom-input" placeholder="Address 2" />
+                            <input type="text" id="address2" class="form-control custom-input"
+                                placeholder="Address 2" />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">City</label>
-                            <input type="text" class="form-control custom-input" placeholder="City" />
+                            <label class="form-label">City <span style="color:red">*</span></label>
+                            <input type="text" id="city" class="form-control custom-input" placeholder="City"
+                                required />
                         </div>
-
                         <div class="col-md-4 mb-3">
                             <label class="form-label">State</label>
-                            <input type="text" class="form-control custom-input" placeholder="State" />
+                            <input type="text" id="state" class="form-control custom-input" placeholder="State" />
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">PIN Code</label>
-                            <input type="text" class="form-control custom-input" placeholder="PIN Code" />
+                            <input type="text" id="pinCode" class="form-control custom-input" placeholder="PIN Code" />
                         </div>
                     </div>
 
                     <!-- Submit Button -->
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success btn-lg mt-3" id="submitBtn">Submit</button>
+                        <button type="submit" class="btn add-btn btn-sm shadow-sm mt-3" id="submitBtn">Submit</button>
                     </div>
                 </div>
             </div>

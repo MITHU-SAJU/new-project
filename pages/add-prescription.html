@@ -103,49 +103,60 @@
                         </div>
 
                         <!-- Prescription Uploads -->
-                        <div class="row mb-4">
-                            <!-- Prescription 1 -->
-                            <div class="col-md-4 text-center">
-                                <label class="form-label">Prescription 1</label>
-                                <label class="file-upload d-flex align-items-center justify-content-center"
-                                    style="cursor: pointer; border: 2px dashed #ccc; height: 150px; border-radius: 8px; overflow: hidden;">
-                                    <input type="file" name="prescription1" accept="image/*" hidden
-                                        onchange="previewInBox(this, 'box1')">
-                                    <div id="box1" style="text-align: center; color: #777;">
-                                        <i class="fas fa-plus" style="font-size: 24px;"></i>
-                                        <p style="margin: 5px 0;">Attach</p>
-                                    </div>
-                                </label>
+                        <div class="container my-4">
+                            <div class="row mb-4" id="prescriptionContainer">
+                                <!-- Prescription 1 -->
+                                <div class="col-md-4 text-center prescription-box">
+                                    <label class="form-label">Prescription 1</label>
+                                    <label class="file-upload d-flex align-items-center justify-content-center"
+                                        style="cursor: pointer; border: 2px dashed #ccc; height: 150px; border-radius: 8px; overflow: hidden;">
+                                        <input type="file" name="prescription1" accept="image/*" hidden
+                                            onchange="previewInBox(this, 'box1')">
+                                        <div id="box1" style="text-align: center; color: #777;">
+                                            <i class="fas fa-plus" style="font-size: 24px;"></i>
+                                            <p style="margin: 5px 0;">Attach</p>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- Prescription 2 -->
+                                <div class="col-md-4 text-center prescription-box">
+                                    <label class="form-label">Prescription 2</label>
+                                    <label class="file-upload d-flex align-items-center justify-content-center"
+                                        style="cursor: pointer; border: 2px dashed #ccc; height: 150px; border-radius: 8px; overflow: hidden;">
+                                        <input type="file" name="prescription2" accept="image/*" hidden
+                                            onchange="previewInBox(this, 'box2')">
+                                        <div id="box2" style="text-align: center; color: #777;">
+                                            <i class="fas fa-plus" style="font-size: 24px;"></i>
+                                            <p style="margin: 5px 0;">Attach</p>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- Prescription 3 -->
+                                <div class="col-md-4 text-center prescription-box">
+                                    <label class="form-label">Prescription 3</label>
+                                    <label class="file-upload d-flex align-items-center justify-content-center"
+                                        style="cursor: pointer; border: 2px dashed #ccc; height: 150px; border-radius: 8px; overflow: hidden;">
+                                        <input type="file" name="prescription3" accept="image/*" hidden
+                                            onchange="previewInBox(this, 'box3')">
+                                        <div id="box3" style="text-align: center; color: #777;">
+                                            <i class="fas fa-plus" style="font-size: 24px;"></i>
+                                            <p style="margin: 5px 0;">Attach</p>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
 
-                            <!-- Prescription 2 -->
-                            <div class="col-md-4 text-center">
-                                <label class="form-label">Prescription 2</label>
-                                <label class="file-upload d-flex align-items-center justify-content-center"
-                                    style="cursor: pointer; border: 2px dashed #ccc; height: 150px; border-radius: 8px; overflow: hidden;">
-                                    <input type="file" name="prescription2" accept="image/*" hidden
-                                        onchange="previewInBox(this, 'box2')">
-                                    <div id="box2" style="text-align: center; color: #777;">
-                                        <i class="fas fa-plus" style="font-size: 24px;"></i>
-                                        <p style="margin: 5px 0;">Attach</p>
-                                    </div>
-                                </label>
-                            </div>
-
-                            <!-- Prescription 3 -->
-                            <div class="col-md-4 text-center">
-                                <label class="form-label">Prescription 3</label>
-                                <label class="file-upload d-flex align-items-center justify-content-center"
-                                    style="cursor: pointer; border: 2px dashed #ccc; height: 150px; border-radius: 8px; overflow: hidden;">
-                                    <input type="file" name="prescription3" accept="image/*" hidden
-                                        onchange="previewInBox(this, 'box3')">
-                                    <div id="box3" style="text-align: center; color: #777;">
-                                        <i class="fas fa-plus" style="font-size: 24px;"></i>
-                                        <p style="margin: 5px 0;">Attach</p>
-                                    </div>
-                                </label>
+                            <!-- Small Add Button -->
+                            <div class="text-end">
+                                <button type="button" id="addPrescriptionBtn" class="btn btn-lg btn-success">
+                                    <i class="fas fa-plus"></i> Add Prescription
+                                </button>
                             </div>
                         </div>
+
+
                 </div>
             </div>
         </div>
@@ -211,7 +222,7 @@
 
                     <!-- Create Order Button -->
                     <div class="text-center mt-4">
-                        <button class="btn btn-secondary btn-lg px-5 shadow-sm rounded-pill">
+                        <button class="btn add-btn btn-sm shadow-sm px-5 shadow-sm ">
                             Create Order
                         </button>
                     </div>
@@ -219,10 +230,7 @@
             </div>
 
 
-            <!-- Submit Button -->
-            <div class="text-center mt-5">
-                <button type="submit" class="btn btn-success btn-lg">Add Prescription</button>
-            </div>
+
             </form>
         </div>
     </div>
@@ -242,6 +250,32 @@
                 reader.readAsDataURL(file);
             }
         }
+    </script>
+    <script>
+        let prescriptionCount = 3;
+
+        document.getElementById('addPrescriptionBtn').addEventListener('click', function () {
+            prescriptionCount++;
+
+            let container = document.getElementById('prescriptionContainer');
+
+            let newBox = document.createElement('div');
+            newBox.className = 'col-md-4 text-center prescription-box';
+            newBox.innerHTML = `
+        <label class="form-label">Prescription ${prescriptionCount}</label>
+        <label class="file-upload d-flex align-items-center justify-content-center"
+            style="cursor: pointer; border: 2px dashed #ccc; height: 150px; border-radius: 8px; overflow: hidden;">
+            <input type="file" name="prescription${prescriptionCount}" accept="image/*" hidden
+                onchange="previewInBox(this, 'box${prescriptionCount}')">
+            <div id="box${prescriptionCount}" style="text-align: center; color: #777;">
+                <i class="fas fa-plus" style="font-size: 24px;"></i>
+                <p style="margin: 5px 0;">Attach</p>
+            </div>
+        </label>
+    `;
+
+            container.appendChild(newBox);
+        });
     </script>
 
 </body>
